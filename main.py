@@ -44,6 +44,7 @@ def custom_openapi():
     # Define public paths that don't need authentication
     public_paths = {
         "/",
+        "/health",
         "/docs",
         "/redoc",
         "/openapi.json",
@@ -114,4 +115,14 @@ async def root():
             "Book and category management",
             "Publisher management"
         ]
+    }
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring"""
+    return {
+        "status": "healthy",
+        "timestamp": "2024-01-01T00:00:00Z",
+        "service": "Book Platform API",
+        "version": "1.0.0"
     } 
