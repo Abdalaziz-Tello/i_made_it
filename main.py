@@ -8,7 +8,7 @@ from models import Base
 import os
 
 # Create database tables
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)  # type: ignore
 
 # Create uploads directory if it doesn't exist
 os.makedirs("uploads", exist_ok=True)
